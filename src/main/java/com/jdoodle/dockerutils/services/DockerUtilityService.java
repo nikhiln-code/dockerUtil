@@ -19,12 +19,13 @@ public class DockerUtilityService {
         return dockerUtil.createAndStartDockerContainer();
     }
 
-    public void stopDockerNginx(){
+    public String stopDockerNginx(){
+        return dockerUtil.stopDockerNginx();
 
     }
 
-    public void getPageDocker(){
-
+    public String getPageDocker(){
+        return dockerUtil.getPageDocker();
     }
 
     public String listNodes(){

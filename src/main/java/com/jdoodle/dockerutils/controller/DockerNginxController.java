@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
-@RequestMapping("/jdoodle")
+@RequestMapping("/v1/dockerUtil")
 public class DockerNginxController {
     private static final Logger logger = LoggerFactory.getLogger(DockerNginxController.class);
 
@@ -27,13 +27,14 @@ public class DockerNginxController {
     @GetMapping("/stop-docker-nginx")
     public String stopDockerNginx(){
         logger.info("Inside the stopDockerNginx");
-        return "hello you have called the create-start-docker-nginx";
+        return service.stopDockerNginx();
     }
 
     @GetMapping("/get-page-docker")
     public String getPageDocker(){
         logger.info("Inside the getPageDocker");
-        return "hello you have called the create-start-docker-nginx";
+        return service.getPageDocker();
+
     }
 
     @GetMapping("/listNodes")

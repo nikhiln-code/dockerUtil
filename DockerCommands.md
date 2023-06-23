@@ -9,6 +9,7 @@
 - Docker stop <containerid>
 - Docker kill <containerid>
 - Docker rm <containerid>
+  docker exec -it c573a7820672 curl localhost
 
  - docker cp demofile.html 5d82b0eac4af:/var/www/html/index.nginx-debian.html
 
