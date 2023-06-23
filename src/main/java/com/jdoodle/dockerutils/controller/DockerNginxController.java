@@ -4,8 +4,11 @@ import com.jdoodle.dockerutils.services.DockerUtilityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
@@ -18,23 +21,21 @@ public class DockerNginxController {
 
 
     @GetMapping("/create-start-docker-nginx")
-    public String createAndStartDockerNginx(){
+    public ResponseEntity<?> createAndStartDockerNginx(){
         logger.info("Inside the createAndStartDockerNginx");
-        return service.createAndStartDockerNginx();
+        return new ResponseEntity<>(service.createAndStartDockerNginx(), HttpStatus.OK);
     }
 
-
     @GetMapping("/stop-docker-nginx")
-    public String stopDockerNginx(){
+    public ResponseEntity<?> stopDockerNginx(){
         logger.info("Inside the stopDockerNginx");
-        return service.stopDockerNginx();
+        return new ResponseEntity<>(service.stopDockerNginx(), HttpStatus.OK);
     }
 
     @GetMapping("/get-page-docker")
-    public String getPageDocker(){
+    public ResponseEntity<?> getPageDocker(){
         logger.info("Inside the getPageDocker");
-        return service.getPageDocker();
-
+        return new ResponseEntity<>(service.getPageDocker(), HttpStatus.OK);
     }
 
     @GetMapping("/listNodes")
